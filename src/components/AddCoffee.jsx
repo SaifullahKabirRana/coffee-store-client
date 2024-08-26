@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
 import Swal from 'sweetalert2'
@@ -28,17 +28,18 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.insertedId){
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Coffee added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Close'
-                      }) 
-                      form.reset();
+                    })
+                    form.reset();
                 }
             })
     }
+
     return (
         <div className='container mx-auto mt-4 md:mt-8 lg:mt-10'>
             <div className='mx-6 md:mx-24'>

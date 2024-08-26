@@ -3,9 +3,42 @@ import PropTypes from 'prop-types';
 import { IoEye } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const CoffeeCard = ({ coffee }) => {
-    const { name, chef, supplier, taste, price, details, photo } = coffee;
+    const { _id, name, chef, supplier, taste, price, details, photo } = coffee;
+
+    const handleDelete = _id => {
+        console.log(_id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/coffee/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Coffee has been deleted.",
+                                icon: "success"
+                            });
+
+                        }
+                    })
+            }
+        });
+    }
     return (
         <div className='bg-[#F5F4F1] rounded-[10px]'>
             <div className="flex flex-row justify-evenly md:gap-2 lg:gap-10 pt-3 md:pt-5  lg:p-8 pb-4 md:pb-8">
@@ -22,8 +55,10 @@ const CoffeeCard = ({ coffee }) => {
 
                 <div className='flex flex-col gap-2 md:gap-3 lg:gap-4  mt-[25px] md:mt-[38px] lg:mt-[55px] '>
                     <IoEye className='bg-[#D2B48C] text-white text-[30px] lg:text-[40px] p-1 lg:p-2 rounded-[5px]' />
-                    <MdEdit className='bg-[#3C393B] text-white text-[30px] lg:text-[40px]  p-1 lg:p-2 rounded-[5px]' />
-                    <MdDelete className='bg-[#EA4744] text-white text-[30px] lg:text-[40px] p-1 lg:p-2 rounded-[5px]' />
+                    <Link to={`/updateCoffee/${_id}`}>
+                        <MdEdit className='bg-[#3C393B] text-white text-[30px] lg:text-[40px]  p-1 lg:p-2 rounded-[5px]' />
+                    </Link>
+                    <MdDelete onClick={() => handleDelete(_id)} className='bg-[#EA4744] text-white text-[30px] lg:text-[40px]  p-1 lg:p-2 rounded-[5px]' />
                 </div>
             </div>
         </div>
