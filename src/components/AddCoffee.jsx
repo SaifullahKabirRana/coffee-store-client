@@ -1,8 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
+import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
+    const handleAddCoffee = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const chef = form.chef.value;
+        const supplier = form.supplier.value;
+        const taste = form.taste.value;
+        const category = form.category.value;
+        const details = form.details.value;
+        const photo = form.photo.value;
+        const newCoffee = { name, chef, supplier, taste, category, details, photo };
+        console.log(newCoffee);
+
+        // send data to the server
+        fetch('http://localhost:5000/coffee', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Close'
+                      }) 
+                }
+            })
+    }
     return (
         <div className='container mx-auto mt-4 md:mt-8 lg:mt-10'>
             <div className='mx-6 md:mx-24'>
@@ -13,7 +48,7 @@ const AddCoffee = () => {
                     <div className='px-[30px] md:px-[50px] lg:px-[112px]'>
                         <h3 className='font-rancho text-[28px] md:text-[35px] lg:text-[45px] text-[#374151] pt-[30px] md:pt-[40px] lg:pt-[50px] text-center'>Add New Coffee</h3>
                         <p className='font-raleway text-[12px] md:text-[14px] lg:text-[17px] text-[#1B1A1AB3] mt-2 md:mt-3 lg:mt-6 text-center px-2 lg:px-20 mb-4 md:mb-5 lg:mb-8'>Add your unique coffee blend to our marketplace! Share your coffee's story, flavor notes, and origin. Join our community and let coffee lovers discover your special brew.</p>
-                        <form className='font-raleway'>
+                        <form onSubmit={handleAddCoffee} className='font-raleway'>
                             <div className='md:flex md:gap-4 lg:gap-6'>
                                 <div className="form-control font-raleway w-full">
                                     <label className="label">
