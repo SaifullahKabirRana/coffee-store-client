@@ -11,10 +11,10 @@ const AddCoffee = () => {
         const chef = form.chef.value;
         const supplier = form.supplier.value;
         const taste = form.taste.value;
-        const category = form.category.value;
+        const price = form.price.value;
         const details = form.details.value;
         const photo = form.photo.value;
-        const newCoffee = { name, chef, supplier, taste, category, details, photo };
+        const newCoffee = { name, chef, supplier, taste, price, details, photo };
         console.log(newCoffee);
 
         // send data to the server
@@ -35,6 +35,7 @@ const AddCoffee = () => {
                         icon: 'success',
                         confirmButtonText: 'Close'
                       }) 
+                      form.reset();
                 }
             })
     }
@@ -80,9 +81,9 @@ const AddCoffee = () => {
                             <div className='md:flex md:gap-4 lg:gap-6 mt-3 md:mt-3 lg:mt-5'>
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text text-base md:text-lg lg:text-xl font-raleway font-semibold text-[#1B1A1ACC]">Category</span>
+                                        <span className="label-text text-base md:text-lg lg:text-xl font-raleway font-semibold text-[#1B1A1ACC]">Price</span>
                                     </label>
-                                    <input type="text" name='category' placeholder="Enter coffee category" className="input w-full text-[14px] md:text-[16px]" required />
+                                    <input type="number" name='price' placeholder="Enter coffee price" className="input w-full text-[14px] md:text-[16px]" required />
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">

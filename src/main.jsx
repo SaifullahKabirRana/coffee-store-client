@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage';
 import Root from './components/Root';
 import AddCoffee from './components/AddCoffee';
 import UpdateCoffee from './components/UpdateCoffee';
+import Coffee from './components/Coffee';
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/coffee')
       },
+      // {
+      //   path: '/',
+      //   element: <Coffee></Coffee>,
+      //   loader: () => fetch('http://localhost:5000/coffee')
+
+      // },
       {
         path: '/addCoffee',
         element: <AddCoffee></AddCoffee>
