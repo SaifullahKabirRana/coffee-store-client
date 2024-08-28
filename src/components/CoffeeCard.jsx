@@ -42,7 +42,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
         });
     }
     return (
-        <div className='bg-[#F5F4F1] rounded-[10px]'>
+        <div className='bg-[#F5F4F1] rounded-[10px] shadow-sm transition-transform transform hover:scale-105 duration-300'>
             <div className="flex flex-row justify-evenly md:gap-2 lg:gap-10 pt-3 md:pt-5  lg:p-8 pb-4 md:pb-8">
                 <div className='pt-3 md:pt-5'>
                     <img className='w-[80px] md:w-[100px] lg:w-full h-[150px] md:h-[170px] lg:h-[239px] '
