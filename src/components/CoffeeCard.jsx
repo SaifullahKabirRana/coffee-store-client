@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
-    const { _id, name, chef, supplier, taste, price, details, photo } = coffee;
+    const { _id, name, chef, price,  photo } = coffee;
 
     const handleDelete = _id => {
         console.log(_id)
@@ -56,7 +56,9 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                 </div>
 
                 <div className='flex flex-col gap-2 md:gap-3 lg:gap-4  mt-[25px] md:mt-[38px] lg:mt-[55px] '>
-                    <IoEye className='bg-[#D2B48C] text-white text-[30px] lg:text-[40px] p-1 lg:p-2 rounded-[5px]' />
+                    <Link to={`/coffeeDetails/${_id}`}>
+                        <IoEye className='bg-[#D2B48C] text-white text-[30px] lg:text-[40px] p-1 lg:p-2 rounded-[5px]' />
+                    </Link>
                     <Link to={`/updateCoffee/${_id}`}>
                         <MdEdit className='bg-[#3C393B] text-white text-[30px] lg:text-[40px]  p-1 lg:p-2 rounded-[5px]' />
                     </Link>
