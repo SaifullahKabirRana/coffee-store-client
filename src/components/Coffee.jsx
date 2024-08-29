@@ -8,7 +8,7 @@ const Coffee = () => {
     console.log(coffees)
 
     return (
-        <div className="mt-[30px] md:mt-[60px] lg:mt-[100px] container mx-auto">
+        <div className=" mt-[30px] md:mt-[60px] lg:mt-[100px] container mx-auto">
             <div className="mx-6 md:mx-8 lg:mx-12">
                 <div className="text-center">
                     <p className="text-[#1B1A1A] font-raleway text-[10px] md:text-[14px] lg:text-lg">--- Sip & Savor ---</p>

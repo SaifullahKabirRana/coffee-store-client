@@ -1,7 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import img1 from '../assets/more/11.png';
 
 const UpdateCoffee = () => {
     const coffee = useLoaderData();
@@ -44,7 +45,11 @@ const UpdateCoffee = () => {
     }
 
     return (
-        <div className='container mx-auto mt-4 md:mt-8 lg:mt-10'>
+        <div>
+            <div className=' md:-mt-7 lg:-mt-10 absolute z-10'>
+                <img src={img1} alt="" />
+            </div>
+            <div className='relative z-20 container mx-auto mt-4 md:mt-8 lg:mt-10'>
             <div className='mx-6 md:mx-24'>
                 <Link className='' to='/'>
                     <button className='btn btn-outline border-none hover:bg-[#D2B48C] text-[#374151] hover:text-[#374151] font-rancho text-[21px] md:text-[26px]'><FaArrowLeft /> Back to home</button>
@@ -123,6 +128,7 @@ const UpdateCoffee = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
