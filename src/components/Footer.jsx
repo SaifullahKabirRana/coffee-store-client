@@ -10,8 +10,8 @@ const Footer = () => {
   return (
     <div>
       <div className='footer-img mt-8 md:mt-12 lg:mt-24 pb-6 md:pb-9 lg:pb-12'>
-        <div className='md:flex '>
-          <div className='ml-[30px] md:ml-[35px] lg:ml-[220px] pt-[35px] md:pt-[60px] lg:pt-[100px]'>
+        <div className='md:flex container mx-auto'>
+          <div className='mx-7 md:mx-10 pt-[35px] md:pt-[60px] lg:pt-[100px]'>
             <img className='w-[60px] md:w-[80px]' src={logo1} alt="" />
             <h2 className='font-rancho text-[#331A15] text-[25px] md:text-[35px] lg:text-[45px] mt-3 md:mt-4 lg:mt-6'>Espresso Emporium</h2>
             <p className='font-raleway text-[#1B1A1A] text-[12px] md:text-[14px] lg:text-lg mt-2 md:mt-3 lg:mt-5 md:w-[60%] lg:w-[60%]'>Always ready to be your friend. Come & Contact with us to share your memorable moments, to share with your best companion.</p>
@@ -26,7 +26,7 @@ const Footer = () => {
               <FaPhone className='text-[#331A15]' />
               <p className='text-[#1B1A1A] font-raleway text-[15px] md:text-[20px]'>+88 01533 333 333</p>
             </div>
-            <div className='flex flex-row items-center gap-2 md:gap-4 text-base md:text-[20px] mt-1 md:mt-2 lg:mt-3'>
+            <div className='flex flex-row items-center gap-2 md:gap-4 text-base md:text-[20px] mt-1 md:mt-2 lg:mt-3 '>
               <IoMdMail className='text-[#331A15]' />
               <p className='text-[#1B1A1A] font-raleway text-[15px] md:text-[20px]'>info@gmail.com</p>
             </div>

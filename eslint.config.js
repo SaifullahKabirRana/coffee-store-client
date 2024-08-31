@@ -1,3 +1,4 @@
+
 import js from '@eslint/js'
 import globals, { node } from 'globals'
 import react from 'eslint-plugin-react'

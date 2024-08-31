@@ -4,7 +4,7 @@ import icon3 from '../assets/icons/3.png'
 import icon4 from '../assets/icons/4.png'
 const Banner = () => {
     return (
-        <div>
+        <div className=''>
             <div className="banner-img bg-no-repeat bg-cover bg-center min-h-[33vh] md:min-h-[50vh] lg:min-h-[760px] lg:relative lg:-top-28">
                 <div className=" pt-14 md:pt-20 lg:pt-72 pl-12 md:pl-[340px] lg:pl-96 lg:ml-[500px] ">
                     <h3 className="text-white text-2xl md:text-3xl lg:text-5xl font-rancho">Would you like a Cup of Delicious Coffee?</h3>

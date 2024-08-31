@@ -6,13 +6,13 @@ const CoffeeDetails = () => {
     const { _id, name, chef, supplier, taste, price, details, photo } = coffee;
     return (
         <div>
-            <div className='md:-mt-7 lg:-mt-10 absolute z-10'><img src={img1} alt="" /></div>
+            <div className='md:-mt-7 lg:-mt-10 absolute z-10 '><img src={img1} alt="" /></div>
             <div className='relative z-20 container mx-auto mt-4 md:mt-8 lg:mt-10 '>
                 <div className='mx-6 md:mx-24 lg:mx-56'>
                     <Link className='-ml-2' to='/'>
-                        <button className='btn btn-outline border-none hover:bg-[#D2B48C] text-[#374151] hover:text-[#374151] font-rancho text-[21px] md:text-[26px]'><FaArrowLeft /> Back to home</button>
+                        <button className='btn btn-outline border-none  hover:bg-[#D2B48C] text-[#374151] hover:text-[#374151] font-rancho text-[21px] md:text-[26px]'><FaArrowLeft /> Back to home</button>
                     </Link>
-                    <div className='bg-[#F4F3F0] rounded-[8px] mt-6 md:mt-9 lg:mt-12 shadow-md'>
+                    <div className='bg-[#F4F3F0]  rounded-[8px] mt-6 md:mt-9 lg:mt-12 shadow-md'>
                         <div className='flex justify-evenly py-8 md:py-6 lg:py-14'>
                             <div className='w-[45%] md:w-[35%] mt-4 md:mt-0'>
                                 <img className='w-[200px] h-[230px] md:h-[340px] lg:h-[440px] md:w-[200px] lg:w-[320px]' src={photo} alt="" />
