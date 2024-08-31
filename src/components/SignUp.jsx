@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import 'animate.css';
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
     const handleSignUp = e => {
@@ -13,13 +14,36 @@ const SignUp = () => {
         const password = form.password.value;
         console.log(name, email, password);
 
-        createUser(email,password)
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.message); 
-        })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                // new user has been created
+                const createdAt = result.user?.metadata?.creationTime;
+                const user = { email, createdAt: createdAt};
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'SignUp Successfully',
+                                icon: 'success',
+                                confirmButtonText: 'Close'
+                            })
+                            form.reset();
+                        }
+                    })
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <div>
