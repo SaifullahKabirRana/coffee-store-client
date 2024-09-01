@@ -5,7 +5,7 @@ const Users = () => {
     const loadedUsers = useLoaderData();
     const [users, setUsers] = useState(loadedUsers);
     const handleDelete = id =>{
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://coffee-store-server-opal-omega.vercel.app/user/${id}`, {
             method: 'DELETE'
            
         })
@@ -32,6 +32,7 @@ const Users = () => {
                                 <th></th>
                                 <th>Email</th>
                                 <th>CreatedAt</th>
+                                <th>Last LoggedIn</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,6 +42,7 @@ const Users = () => {
                                     <th>1</th>
                                     <td>{user.email}</td>
                                     <td>{user.createdAt}</td>
+                                    <td>{user.lastLoggedAt}</td>
                                     <td onClick={() => handleDelete(user._id)} className="text-xl text-red-500"><MdDelete /></td>
                                 </tr>)
                             }

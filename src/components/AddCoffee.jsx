@@ -18,7 +18,7 @@ const AddCoffee = () => {
         const newCoffee = { name, chef, supplier, taste, price, details, photo };
 
         // send data to the server
-        fetch('http://localhost:5000/coffee', {
+        fetch('https://coffee-store-server-opal-omega.vercel.app/coffee', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
