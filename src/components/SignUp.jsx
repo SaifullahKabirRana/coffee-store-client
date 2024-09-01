@@ -1,4 +1,3 @@
-import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import 'animate.css';
 import { useContext } from "react";
